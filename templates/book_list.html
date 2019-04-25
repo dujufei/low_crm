@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<a href="/add_book">增加书籍</a>
+<table border="2px">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>图书ID</td>
+            <td>书名</td>
+            <td>出版社</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for book in book_list %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ book.id }}</td>
+            <td>{{ book.book_name }}</td>
+            <td>{{ book.publish_id.name }}</td>
+            <td>
+                <a href="/edit_book/?id={{ book.id }}">编辑</a>
+                <a href="/del_book/?id={{ book.id }}">删除</a>
+            </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+</body>
+</html>

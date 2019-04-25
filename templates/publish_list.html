@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<a href="/add_publish/">增加出版社</a>
+<table border="2px">
+    <thead>
+    <tr>
+        <td>序号</td>
+        <td>出版社id</td>
+        <td>出版社名称</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for publish in publish_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ publish.id }}</td>
+            <td>{{ publish.name }}</td>
+            <td>
+                <a href="/edit_publish/?id={{ publish.id }}">编辑</a>
+                <a href="/del_publish/?id={{ publish.id }}">删除</a>
+            </td>
+        </tr>
+    {% endfor %}
+
+
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="author_name" placeholder="作者姓名"><br>
+    <select name="books" id="" multiple>
+        {% for book in book_list %}
+            <option value="{{ book.id }}">{{ book.book_name }}</option>
+        {% endfor %}
+
+    </select>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

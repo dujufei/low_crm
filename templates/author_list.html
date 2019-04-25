@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<a href="/add_author/">增加作者</a>
+<table border="2px">
+    <thead>
+    <tr>
+        <td>序号</td>
+        <td>作者id</td>
+        <td>作者name</td>
+        <td>作者作品</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for author in author_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ author.id }}</td>
+            <td>{{ author.name }}</td>
+            <td>
+                {% for book in author.books.all %}
+                    {% if forloop.last %}
+                        《{{ book.book_name }}》
+                    {% else %}
+                        《{{ book.book_name }}》,
+                    {% endif %}
+                {% endfor %}
+
+            </td>
+
+            <td>
+                <a href="/edit_author/?id={{ author.id }}">编辑</a>
+                <a href="/del_author/?id={{ author.id }}">删除</a>
+            </td>
+
+        </tr>
+    {% endfor %}
+
+
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="id" placeholder="书籍id"  value="{{ book_obj.id }}">
+    <input type="text" name="name" placeholder="书籍名称" value="{{ book_obj.book_name }}">
+    <select name="edit_book_publish" id="">
+        {% for publish in publish_list %}
+            {% if publish.id == book_obj.publish_id_id %}
+                <option value="{{ publish.id }}" selected>{{ publish.name }}</option>
+            {% else %}
+                <option value="{{ publish.id }}">{{ publish.name }}</option>
+
+            {% endif %}
+        {% endfor %}
+
+    </select>
+    <input type="submit" value="提交">
+
+
+</form>
+</body>
+</html>

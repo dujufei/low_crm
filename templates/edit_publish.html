@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" value="{{ publish_edit_obj.id }}" name="publish_id" placeholder="id"><br>
+    <input type="text" value="{{ publish_edit_obj.name }}" name="publish_name" placeholder="出版社名称"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
